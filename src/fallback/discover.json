@@ -1,0 +1,28 @@
+{
+  "results": [
+    {
+      "id": 950387,
+      "title": "A Minecraft Movie",
+      "overview": "Four misfits find themselves struggling with ordinary problems...",
+      "release_date": "2025-03-31",
+      "popularity": 824.7134,
+      "vote_average": 6.1,
+      "vote_count": 482,
+      "poster_path": "/iPPTGh2OXuIv6d7cwuoPkw8govp.jpg",
+      "backdrop_path": "/2Nti3gYAX513wvhp8IiLL6ZDyOm.jpg",
+      "genre_ids": [10751, 35, 12, 14]
+    },
+    {
+      "id": 324544,
+      "title": "In the Lost Lands",
+      "overview": "A queen sends the powerful and feared sorceress...",
+      "release_date": "2025-02-27",
+      "popularity": 873.5678,
+      "vote_average": 5.926,
+      "vote_count": 101,
+      "poster_path": "/iHf6bXPghWB6gT8kFkL1zo00x6X.jpg",
+      "backdrop_path": "/op3qmNhvwEvyT7UFyPbIfQmKriB.jpg",
+      "genre_ids": [14, 12, 28]
+    }
+  ]
+}
