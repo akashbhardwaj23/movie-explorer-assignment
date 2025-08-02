@@ -9,10 +9,12 @@ import type { AllMovieType, Genre, MovieType, MyCastType } from "../types";
 export const fetchDiscoverMovies = async (page : number) => {
   const res = await axios.get(`${BASE_URL}/discover/movie`, {
     headers : {
-        Authorization: `Bearer ${process.env.API_KEY}`,
-        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.API_READ_KEY}`,
+        "Accept": "application/json",
     },
-    params: { page },
+    params : {
+        page : page
+    }
   });
 
   const data: AllMovieType = res.data;
@@ -26,13 +28,13 @@ export const fetchMovieDetails = async (id : number) => {
   const [details, credits] = await Promise.all([
     axios.get(`${BASE_URL}/movie/${id}`, { 
         headers: {
-            Authorization: `Bearer ${process.env.API_KEY}`,
+            Authorization: `Bearer ${process.env.API_READ_KEY}`,
             "Content-Type": "application/json",
         }
      }),
     axios.get(`${BASE_URL}/movie/${id}/credits`, { 
         headers : {
-            Authorization: `Bearer ${process.env.API_KEY}`,
+            Authorization: `Bearer ${process.env.API_READ_KEY}`,
             "Content-Type": "application/json",
         }
      }),

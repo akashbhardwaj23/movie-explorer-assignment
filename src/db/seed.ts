@@ -2,6 +2,26 @@ import type { Prisma } from "@prisma/client";
 import { fetchDiscoverMovies, fetchMovieDetails, upsertCast, upsertGenres, upsertMovie } from "../lib/utills";
 import { client } from "./db";
 import type { PrismaClientUnknownRequestError } from "@prisma/client/runtime/library";
+import dotenv from "dotenv";
+import axiosRetry from "axios-retry";
+import axios from "axios";
+
+dotenv.config();
+
+
+
+axiosRetry(axios, {
+  retries: 3,
+  retryDelay: retryCount => retryCount * 1000, 
+  retryCondition: (error) => {
+    return (
+      axiosRetry.isNetworkOrIdempotentRequestError(error) ||
+      (error.response !== undefined &&
+        typeof error.response.status === "number" &&
+        error.response.status >= 500)
+    );
+  },
+});
 
 
 const seed = async () => {
@@ -26,6 +46,8 @@ const seed = async () => {
     }
     console.log('✅ Done seeding 500 movies');
   } catch (err : unknown ) {
+
+    console.log('error', err);
     // @ts-ignore
     console.error('❌ Seeding failed:', err.message);
   } finally {
