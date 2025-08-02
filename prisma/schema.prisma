@@ -11,7 +11,7 @@ datasource db {
 
 
 model Movie {
-  id            String  @id @default(uuid())
+  id            Int  @id
   title         String
   overview      String?
   releaseDate   DateTime?
@@ -28,14 +28,14 @@ model Movie {
 
 
 model Genre {
-  id     Int     @id    @default(autoincrement())
+  id     Int     @id 
   name   String
   movies Movie[]   @relation("MovieGenres")
 }   
 
 
 model Cast {
-  id          Int       @id    @default(autoincrement())
+  id          Int       @id 
   name        String
   characters  String?
   profilePath String?
